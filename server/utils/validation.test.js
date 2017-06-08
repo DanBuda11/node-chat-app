@@ -1,3 +1,5 @@
+// Testing ofr validation function
+
 const expect = require('expect');
 
 var {isRealString} = require('./validation');

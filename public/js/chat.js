@@ -33,6 +33,7 @@ socket.on('disconnect', function() {
 	console.log('disconnected from server');
 });
 
+// Update list of users when new person joins room
 socket.on('updateUserList', function(users) {
 	var ol = jQuery('<ol></ol>');
 
@@ -43,6 +44,7 @@ socket.on('updateUserList', function(users) {
 	jQuery('#users').html(ol);
 });
 
+// Handle new incoming chat message
 socket.on('newMessage', function(message) {
 	var formattedTime = moment(message.createAt).format('h:mm a');
 	var template = jQuery('#message-template').html();
@@ -56,6 +58,7 @@ socket.on('newMessage', function(message) {
 	scrollToBottom();
 });
 
+// Handle new incoming location message
 socket.on('newLocationMessage', function(message) {
 	var formattedTime = moment(message.createdAt).format('h:mm a');
 	var template = jQuery('#location-message-template').html();
@@ -81,6 +84,7 @@ jQuery('#message-form').on('submit', function(e) {
 	});
 });
 
+// Handle event when Send Location button clicked
 var locationButton = jQuery('#send-location');
 locationButton.on('click', function() {
 	if (!navigator.geolocation) {

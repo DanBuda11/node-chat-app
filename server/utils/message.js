@@ -1,5 +1,7 @@
+// Use Moment library to timestamp messages
 var moment = require('moment');
 
+// For normal chat message
 var generateMessage = (from, text) => {
 	return {
 		from,
@@ -8,6 +10,7 @@ var generateMessage = (from, text) => {
 	};
 };
 
+// For location message
 var generateLocationMessage = (from, lat, long) => {
 	return {
 		from,

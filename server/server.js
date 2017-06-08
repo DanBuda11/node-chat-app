@@ -18,6 +18,7 @@ app.use(express.static(publicPath));
 io.on('connection', (socket) => {
 	console.log('new user connected');
 
+	// Handle new user joining chat
 	socket.on('join', (params, callback) => {
 		if (!isRealString(params.name) || !isRealString(params.room)) {
 			return callback('Name and room name are required');
@@ -33,6 +34,7 @@ io.on('connection', (socket) => {
 		callback();
 	});
 
+	// Handle new chat message created by user
 	socket.on('createMessage', (message, callback) => {
 		var user = users.getUser(socket.id);
 
@@ -43,6 +45,7 @@ io.on('connection', (socket) => {
 		callback();
 	});
 
+	// Handle new location message created by user
 	socket.on('createLocationMessage', (coords) => {
 		var user = users.getUser(socket.id);
 
@@ -52,6 +55,7 @@ io.on('connection', (socket) => {
 
 	});
 
+	// Handle user leaving chat
 	socket.on('disconnect', () => {
 		var user = users.removeUser(socket.id);
 

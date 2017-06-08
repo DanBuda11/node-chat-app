@@ -1,3 +1,5 @@
+// Testing for message generation functions
+
 var expect = require('expect');
 
 var {generateMessage, generateLocationMessage} = require('./message');

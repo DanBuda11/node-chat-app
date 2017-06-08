@@ -1,3 +1,5 @@
+// Testing of User model functions
+
 const expect = require('expect');
 
 const {Users} = require('./users');

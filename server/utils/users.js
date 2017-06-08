@@ -1,3 +1,5 @@
+// User model
+
 class Users {
 	constructor () {
 		this.users = [];
